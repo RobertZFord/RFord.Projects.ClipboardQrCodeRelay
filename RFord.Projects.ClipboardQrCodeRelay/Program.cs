@@ -27,6 +27,9 @@ namespace RFord.Projects.ClipboardQrCodeRelay
 
                     // add the mediator, commands, and request handlers.
                     services.AddMediatR(Assembly.GetExecutingAssembly());
+
+                    // add our console output implementation
+                    services.AddTransient<IOutput, Outputs.ConsoleOutput>();
                 })
                 .RunConsoleAsync();
     }
