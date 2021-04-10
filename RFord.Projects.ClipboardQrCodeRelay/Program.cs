@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MediatR;
 using System.Reflection;
+using RFord.Projects.ClipboardQrCodeRelay.Services;
 
 namespace RFord.Projects.ClipboardQrCodeRelay
 {

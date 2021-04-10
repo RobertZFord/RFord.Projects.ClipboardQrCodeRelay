@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Hosting;
+using RFord.Projects.ClipboardQrCodeRelay.Commands;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TextCopy;
 
-namespace RFord.Projects.ClipboardQrCodeRelay
+namespace RFord.Projects.ClipboardQrCodeRelay.Services
 {
     // extremely boilerplate hosted process.
     // basically just starts a timer that periodically queries the clipboard contents, and if they change, fires off an event with the new contents.
@@ -17,7 +18,7 @@ namespace RFord.Projects.ClipboardQrCodeRelay
         private System.Timers.Timer _timer;
 
         private string _previousContents = string.Empty;
-        
+
         // only one thread at a time, please!
         private SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
 
