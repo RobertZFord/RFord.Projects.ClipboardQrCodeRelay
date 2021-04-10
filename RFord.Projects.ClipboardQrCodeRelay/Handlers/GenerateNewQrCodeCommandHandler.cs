@@ -1,12 +1,13 @@
 ﻿using MediatR;
 using QRCoder;
+using RFord.Projects.ClipboardQrCodeRelay.Commands;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RFord.Projects.ClipboardQrCodeRelay
+namespace RFord.Projects.ClipboardQrCodeRelay.Handlers
 {
     public class GenerateNewQrCodeCommandHandler : IRequestHandler<GenerateNewQrCodeCommand>
     {
