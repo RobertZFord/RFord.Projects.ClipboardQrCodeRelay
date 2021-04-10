@@ -10,10 +10,17 @@ namespace RFord.Projects.ClipboardQrCodeRelay
 {
     public class GenerateNewQrCodeCommandHandler : IRequestHandler<GenerateNewQrCodeCommand>
     {
+        private readonly IOutput _output;
+
+        public GenerateNewQrCodeCommandHandler(IOutput output)
+        {
+            _output = output;
+        }
+
         public Task<Unit> Handle(GenerateNewQrCodeCommand request, CancellationToken cancellationToken)
         {
             // clear the console for optimum display
-            Console.Clear();
+            _output.Clear();
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(
@@ -22,7 +29,7 @@ namespace RFord.Projects.ClipboardQrCodeRelay
             );
             AsciiQRCode qrCode = new AsciiQRCode(qrCodeData);
             string render = qrCode.GetGraphic(1);
-            Console.WriteLine(render);
+            _output.Write(render);
 
             return Task.FromResult(Unit.Value);
         }
