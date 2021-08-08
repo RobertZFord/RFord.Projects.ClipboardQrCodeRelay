@@ -76,7 +76,6 @@ namespace RFord.Projects.ClipboardQrCodeRelay.Services
                         {
                             triggerEvent = true;
                         }
-                        i++;
                     }
                 }
 
